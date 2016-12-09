@@ -54,6 +54,24 @@ namespace Salon
       SelectedClient.Update(Request.Form["client-name"]);
       return View["success.cshtml"];
       };
+      Get["/stylist/delete/{id}"] = parameters => {
+        Stylist SelectedStylist = Stylist.Find(parameters.id);
+        return View["stylist_delete.cshtml", SelectedStylist];
+      };
+      Delete["stylist/delete/{id}"] = parameters => {
+        Stylist SelectedStylist = Stylist.Find(parameters.id);
+        SelectedStylist.Delete();
+        return View["success.cshtml"];
+      };
+      Get["/client-delete/{id}"] = parameters => {
+        Client SelectedClient = Client.Find(parameters.id);
+        return View["client_delete.cshtml", SelectedClient];
+      };
+      Delete["/client-delete/{id}"] = parameters => {
+        Client SelectedClient = Client.Find(parameters.id);
+        SelectedClient.Delete();
+        return View["success.cshtml"];
+      };
     }
   }
 }
