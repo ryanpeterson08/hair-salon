@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.AspNet.Builder;
-using Nancy.Owin;
 using Nancy;
+using Nancy.Owin;
 using Nancy.ViewEngines.Razor;
 
-namespace Salon
+
+namespace Food
 {
   public class Startup
   {
@@ -37,5 +38,9 @@ namespace Salon
     {
       get { return false; }
     }
+  }
+  public static class DBConfiguration
+  {
+      public static string ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon;Integrated Security=SSPI;";
   }
 }
