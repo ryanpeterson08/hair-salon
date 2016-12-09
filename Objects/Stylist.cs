@@ -68,6 +68,35 @@ namespace Salon
       }
     }
 
+    public static List<Stylist> GetAll()
+    {
+      List<Stylist> allStylists = new List<Stylist>{};
+
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("SELECT * FROM stylists;", conn);
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      while(rdr.Read())
+      {
+        int StylistId = rdr.GetInt32(0);
+        string StylistName = rdr.GetString(1);
+        Stylist newStylist = Stylist(StylistName, StylistId);
+        allStylists.Add(newStylist);
+      }
+      if(rdr != null)
+      {
+        rdr.Close();
+      }
+      if(conn != null)
+      {
+        conn.Close();
+      }
+
+      return allStylists;
+    }
+
     public static void DeleteAll()
     {
       SqlConnection conn = DB.Connection();

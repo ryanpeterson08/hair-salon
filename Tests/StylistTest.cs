@@ -22,6 +22,14 @@ namespace Salon
       Assert.Equal(stylistOne, stylistTwo);
     }
 
+    // [Fact]
+    // {
+    //   Stylist testStylist = new Stylist("George Washington");
+    //   testStylist.Save();
+    //
+    //
+    // }
+
     public void Dispose()
     {
       Stylist.DeleteAll();
