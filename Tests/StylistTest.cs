@@ -16,8 +16,8 @@ namespace Salon
     [Fact]
     public void Test_Equal_ReturnsTrue_ForSameName()
     {
-      Stylist stylistOne = new Stylist("Ryan Peterson");
-      Stylist stylistTwo = new Stylist("Ryan Peterson");
+      Stylist stylistOne = new Stylist("John French");
+      Stylist stylistTwo = new Stylist("John French");
 
       Assert.Equal(stylistOne, stylistTwo);
     }
@@ -32,6 +32,20 @@ namespace Salon
       List<Stylist> testList = new List<Stylist>{testStylist};
 
       Assert.Equal(testList, result);
+    }
+
+    [Fact]
+    public void Test_Stylist_Given_Id()
+    {
+      Stylist newStylist = new Stylist("Douglas Haig");
+      newStylist.Save();
+
+      Stylist foundStylist = Stylist.GetAll()[0];
+
+      int result = newStylist.GetId();
+      int testId = foundStylist.GetId();
+
+      Assert.Equal(result, testId);
     }
 
     public void Dispose()
