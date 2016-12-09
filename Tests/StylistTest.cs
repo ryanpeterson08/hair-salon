@@ -24,7 +24,7 @@ namespace Salon
 
     public void Dispose()
     {
-      
+      Stylist.DeleteAll();
     }
   }
 }

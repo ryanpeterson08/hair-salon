@@ -67,5 +67,15 @@ namespace Salon
         conn.Close();
       }
     }
+
+    public static void DeleteAll()
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("DELETE FROM stylists;", conn);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+    }
   }
 }
