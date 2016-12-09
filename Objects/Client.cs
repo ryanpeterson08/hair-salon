@@ -85,7 +85,7 @@ namespace Salon
     {
       List<Client> allClients = new List<Client>{};
 
-      SqlConnection conn DB.Connection();
+      SqlConnection conn = DB.Connection();
       conn.Open();
 
       SqlCommand cmd = new SqlCommand("SELECT * FROM clients;", conn);
@@ -108,6 +108,16 @@ namespace Salon
         conn.Close();
       }
       return allClients;
+    }
+
+    public static void DeleteAll()
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("DELETE FROM clients;", conn);
+      cmd.ExecuteNonQuery();
+      conn.Close();
     }
   }
 }
