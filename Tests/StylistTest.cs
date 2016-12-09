@@ -59,6 +59,20 @@ namespace Salon
       Assert.Equal(testStylist, foundStylist);
     }
 
+    [Fact]
+    public void Test_UpdatesStylist_In_Database()
+    {
+      string name = "Dwight Eisenhower";
+      Stylist testStylist = new Stylist(name);
+      testStylist.Save();
+
+      string newName = "Douglas MacArthur";
+      testStylist.Update(newName);
+      string result = testStylist.GetName();
+
+        Assert.Equal(newName, result);
+    }
+
     public void Dispose()
     {
       Stylist.DeleteAll();
