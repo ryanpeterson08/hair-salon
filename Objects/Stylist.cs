@@ -45,7 +45,7 @@ namespace Salon
       SqlConnection conn = DB.Connection();
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("INSERT INTO stylists (name) OUPUT INSERTED.id VALUES (@StylistName);", conn);
+      SqlCommand cmd = new SqlCommand("INSERT INTO stylists (name) OUTPUT INSERTED.id VALUES (@StylistName);", conn);
 
       SqlParameter nameParameter = new SqlParameter();
       nameParameter.ParameterName = "@StylistName";
@@ -82,7 +82,7 @@ namespace Salon
       {
         int StylistId = rdr.GetInt32(0);
         string StylistName = rdr.GetString(1);
-        Stylist newStylist = Stylist(StylistName, StylistId);
+        Stylist newStylist = new Stylist(StylistName, StylistId);
         allStylists.Add(newStylist);
       }
       if(rdr != null)
