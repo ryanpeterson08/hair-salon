@@ -10,9 +10,10 @@
     <ul>
       @foreach(var stylist in Model)
       {
-        <li><a href="/stylist/@stylist.GetId()">@stylist.GetName()</li>
+        <li><a href="/stylist/@stylist.GetId()">@stylist.GetName()</a> | <a href="/stylist/edit/@stylist.GetId()">Edit</a> | <a href="/stylist/delete/@stylist.GetId()">Delete</a></li>
       }
     </ul>
     <a href="/stylists/new">Add in a stylist</a>
+    <a href="/">Home</a>
   </body>
 </html>

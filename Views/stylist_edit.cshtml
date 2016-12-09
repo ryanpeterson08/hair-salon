@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Stylist</title>
+    <link href="/Content/css/bootstrap.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h2>Edit: @Model.GetName()</h2>
+    <form action="/stylist/edit/@Model.GetId()" method="post">
+      <div class="form-group">
+        <input type="hidden" name="_method" value="PATCH">
+      </div>
+      <div class="form-group">
+        <input name="stylist-id" type="hidden" value="@Model.GetId()">
+        <label for="stylist-name">Stylist Name</label>
+        <input name="stylist-name" type="text">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    <a href="/">Home</a>
+  </body>
+</html>
