@@ -14,7 +14,7 @@ namespace Salon
     }
 
     [Fact]
-    public void Test_Equal_ReturnsTrue_ForSameName()
+    public void Test_Equal_ReturnsTrue_ForSameNameAndId()
     {
       Stylist stylistOne = new Stylist("John French");
       Stylist stylistTwo = new Stylist("John French");
