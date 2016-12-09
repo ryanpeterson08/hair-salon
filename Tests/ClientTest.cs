@@ -40,12 +40,23 @@ namespace Salon
       Client testClient = new Client("Conrad", 1);
       testClient.Save();
 
-      Client savedClient = testClient.GetAll()[0];
+      Client savedClient = Client.GetAll()[0];
 
       int result = savedClient.GetId();
       int testId = testClient.GetId();
 
       Assert.Equal(result, testId);
+    }
+
+    [Fact]
+    public void Test_ToFind_Client_InDatabase()
+    {
+      Client testClient = new Client("Conrad", 1);
+      testClient.Save();
+
+      Client foundClient = Client.Find(testClient.GetId());
+
+      Assert.Equal(foundClient, testClient);
     }
 
     public void Dispose()

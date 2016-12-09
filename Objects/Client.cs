@@ -124,7 +124,7 @@ namespace Salon
 
       SqlDataReader rdr = cmd.ExecuteReader();
 
-      int foundClientId = 0
+      int foundClientId = 0;
       string foundName = null;
       int foundStylistId = 0;
 
