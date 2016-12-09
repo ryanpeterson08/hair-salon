@@ -6,7 +6,7 @@ using Nancy.Owin;
 using Nancy.ViewEngines.Razor;
 
 
-namespace Food
+namespace Salon
 {
   public class Startup
   {

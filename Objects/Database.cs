@@ -1,7 +1,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Food
+namespace Salon
 {
   public class DB
   {
