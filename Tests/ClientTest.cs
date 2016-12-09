@@ -59,6 +59,20 @@ namespace Salon
       Assert.Equal(foundClient, testClient);
     }
 
+    [Fact]
+    public void Test_UpdatesClient_In_Database()
+    {
+      string name = "Dwight";
+      Client testClient = new Client(name, 1);
+      testClient.Save();
+
+      string newName = "Douglas";
+      testClient.Update(newName);
+      string result = testClient.GetName();
+
+        Assert.Equal(newName, result);
+    }
+
     public void Dispose()
     {
       Client.DeleteAll();
