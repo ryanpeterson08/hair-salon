@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Stylist Info</title>
+    <link href="/Content/css/bootstrap.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h2>Here is the stylist's clients</h2>
+    <h4>Name: @Model.GetName()</h4>
+    <ul>
+      @foreach(var client in Model.GetClients())
+      {
+        <li>@client.GetName()</li>
+      }
+    </ul>
+    <a href="/">Home</a>
+  </body>
+</html>

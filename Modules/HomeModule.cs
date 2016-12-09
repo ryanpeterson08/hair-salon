@@ -22,6 +22,10 @@ namespace Salon
         List<Stylist> allStylists = Stylist.GetAll();
         return View["clients_add.cshtml", allStylists];
       };
+      Get["/stylist/{id}"]= parameters =>{
+        var SelectedStylist = Stylist.Find(parameters.id);
+        return View["stylist.cshtml", SelectedStylist];
+      };
       Post["/stylists/new"]= _ =>{
         Stylist newStylist = new Stylist(Request.Form["stylist-name"]);
         newStylist.Save();
