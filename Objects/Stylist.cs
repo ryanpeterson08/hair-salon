@@ -105,7 +105,7 @@ namespace Salon
       SqlCommand cmd = new SqlCommand("SELECT * FROM stylists WHERE id = @StylistId;", conn);
       SqlParameter stylistIdParameter = new SqlParameter();
       stylistIdParameter.ParameterName = "@StylistId";
-      stylistIdParameter.Value = id.String;
+      stylistIdParameter.Value = id.ToString();
       cmd.Parameters.Add(stylistIdParameter);
 
       SqlDataReader rdr = cmd.ExecuteReader();

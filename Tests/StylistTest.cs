@@ -48,6 +48,17 @@ namespace Salon
       Assert.Equal(result, testId);
     }
 
+    [Fact]
+    public void Test_ToFind_StylistIn_Database()
+    {
+      Stylist testStylist = new Stylist("Joseph Joffre");
+      testStylist.Save();
+
+      Stylist foundStylist = Stylist.Find(testStylist.GetId());
+
+      Assert.Equal(testStylist, foundStylist);
+    }
+
     public void Dispose()
     {
       Stylist.DeleteAll();
