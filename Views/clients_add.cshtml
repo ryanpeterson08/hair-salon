@@ -4,24 +4,32 @@
     <meta charset="utf-8">
     <title>Add a Client</title>
     <link href="/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/css/styles.css" rel="stylesheet" />
   </head>
   <body>
     <h2>Add a Client</h2>
-    <form action="/clients/new" method="post">
+    @if(@Model.Count != 0)
+    {
+      <form action="/clients/new" method="post">
       <div class="form-group">
-        <label for="client-name">Add client name</label>
-        <input class="form-control" name="client-name" type="text">
+      <label for="client-name">Add client name</label>
+      <input class="form-control" name="client-name" type="text">
       </div>
       <div class="form-group">
-        <select name="stylist-id">
-          @foreach(var stylist in Model)
-          {
-            <option value="@stylist.GetId()">@stylist.GetName()</option>
-          }
-        </select>
+      <select name="stylist-id">
+      @foreach(var stylist in Model)
+      {
+        <option value="@stylist.GetId()">@stylist.GetName()</option>
+      }
+      </select>
       </div>
       <button type="submit" class="btn btn-primary">Add a client</button>
-    </form>
+      </form>
+    }
+  else
+  {
+    <h3>Make Sure You add a stylist first!</h3>
+  }
     <a href="/">Home</a>
   </body>
 </html>

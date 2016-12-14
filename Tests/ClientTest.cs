@@ -93,6 +93,7 @@ namespace Salon
     public void Dispose()
     {
       Client.DeleteAll();
+      Stylist.DeleteAll();
     }
   }
 }
